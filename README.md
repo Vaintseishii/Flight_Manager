@@ -36,6 +36,7 @@ const initialState = {
 ```
 
 ## 4. Required Action Types & Reducer Rules
+```
 Your reducer must handle the following dispatch actions and enforce their validation rules:
 Format: Action / Payload format / Expected validation rules
 
@@ -66,9 +67,10 @@ Appends a new flight object to flights with:• id: ""FL-"" + Math.floor(100 + M
 DISMISS_ALERT
 string (alertId)
 Removes the target alert from the alerts array.
-
+```
 
 ## 5. Recommended Component Hierarchy
+```
 src/
 ├── context/
 │   └── FleetContext.tsx        # createContext, reducer function, and FleetProvider
@@ -78,6 +80,7 @@ src/
 │   ├── ControlPanel.tsx        # Detailed controls for currently selected flight
 │   └── AlertList.tsx           # Warning and danger banners with dismiss buttons
 └── App.tsx                     # Shell layout wrapped inside <FleetProvider>
+```
 
 
 ## 6. Maintaining State Immutability
