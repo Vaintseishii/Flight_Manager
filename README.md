@@ -33,10 +33,10 @@ const initialState = {
     { id: "FL-412", destination: "Paris (CDG)", status: "LANDED", altitude: 0, fuelPercent: 40 }
   ]
 };
+```
 
-Required Action Types & Reducer Rules
+## 4. Required Action Types & Reducer Rules
 Your reducer must handle the following dispatch actions and enforce their validation rules:
-
 Format: Action / Payload format / Expected validation rules
 
 SELECT_FLIGHT
@@ -68,7 +68,7 @@ string (alertId)
 Removes the target alert from the alerts array.
 
 
-Recommended Component Hierarchy
+## 5. Recommended Component Hierarchy
 src/
 ├── context/
 │   └── FleetContext.tsx        # createContext, reducer function, and FleetProvider
@@ -80,9 +80,10 @@ src/
 └── App.tsx                     # Shell layout wrapped inside <FleetProvider>
 
 
-Maintaining State Immutability
+## 6. Maintaining State Immutability
 Always return new object and array references from your reducer. Use .map() to update an item in an array without modifying the original array directly.
 // Reference Example: Updating a flight inside your reducer
+``` typescript
 case "ADJUST_ALTITUDE": {
   const updatedFlights = state.flights.map(flight => {
     // If current flight is not the one we want, skip over it
@@ -99,18 +100,19 @@ case "ADJUST_ALTITUDE": {
 
   return { ...state, flights: updatedFlights };
 }
+```
 
-Submission Checklist
+## 7. Submission Checklist
 Before submitting verify that:
 
-[ ] Your application is wrapped in <FleetProvider> in App.tsx.
+1. Your application is wrapped in <FleetProvider> in App.tsx.
 
-[ ] Changing weather, altitude, fuel, or status properly dispatches actions.
+2. Changing weather, altitude, fuel, or status properly dispatches actions.
 
-[ ] Altitude cannot go below 0 or above 45,000.
+3. Altitude cannot go below 0 or above 45,000.
 
-[ ] Fuel dropping below 20% automatically triggers an alert banner.
+4. Fuel dropping below 20% automatically triggers an alert banner.
 
-[ ] Clicking a flight in FlightTable updates ControlPanel to reflect that specific aircraft.
+5. Clicking a flight in FlightTable updates ControlPanel to reflect that specific aircraft.
 
-[ ] All list manipulations remain strictly 1D without nested arrays.
+6. All list manipulations remain strictly 1D without nested arrays.
